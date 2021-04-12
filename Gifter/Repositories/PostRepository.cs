@@ -226,14 +226,14 @@ namespace Gifter.Repositories
 
                         if (DbUtils.IsNotDbNull(reader, "CommentId"))
                         {
-                            post.Comments.Add(new Comment()
-                                {
-                                    Id = DbUtils.GetInt(reader, "CommentId"),
-                                    Message = DbUtils.GetString(reader, "Message"),
-                                    PostId = postId,
-                                    UserProfileId = DbUtils.GetInt(reader, "CommentUserProfileId")
-                                });
-                            }
+                        post.Comments.Add(new Comment()
+                           {
+                               Id = DbUtils.GetInt(reader, "CommentId"),
+                               Message = DbUtils.GetString(reader, "Message"),
+                               PostId = postId,
+                               UserProfileId = DbUtils.GetInt(reader, "CommentUserProfileId")
+                           });
+                        }
                     }
                     
 

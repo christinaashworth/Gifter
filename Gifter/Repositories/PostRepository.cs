@@ -383,11 +383,11 @@ namespace Gifter.Repositories
                         up.ImageUrl AS UserProfileImageUrl
                     FROM Post p 
                         LEFT JOIN UserProfile up ON p.UserProfileId = up.id
-                    WHERE p.DateCreated >= CONVERT(datetime, @SomeDate, 0)
+                    WHERE p.DateCreated >= @SomeDate
                     ORDER BY p.DateCreated";
 
                     cmd.CommandText = sql;
-                    DbUtils.AddParameter(cmd, "@SomeDate", $"%{someDate}%");
+                    DbUtils.AddParameter(cmd, "@SomeDate", someDate);
                     var reader = cmd.ExecuteReader();
 
                     var posts = new List<Post>();

@@ -61,6 +61,9 @@ namespace Gifter.Controllers
         [HttpPost]
         public IActionResult Post(Post post)
         {
+            DateTime dateCreated = DateTime.Now;
+            post.DateCreated = dateCreated;
+
             _postRepository.Add(post);
             return CreatedAtAction("Get", new { id = post.Id }, post);
         }

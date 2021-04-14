@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 export const PostForm = () => {
   const { addPost } = useContext(PostContext)
-}
+
 
 const [post, setPost] = useState({
   title: "",
@@ -22,7 +22,7 @@ const handleControlledInputChange = (event) => {
 }
 
 const handleSavePost = () => {
-  addEmployee({
+  addPost({
     title: post.title,
     imageUrl: post.imageUrl,
     caption: post.caption,
@@ -30,9 +30,10 @@ const handleSavePost = () => {
   })
 }
 
+
 return (
   <form className="postForm">
-    <h2 className="postForm__title">Add Employee</h2>
+    <h2 className="postForm__title">Add Post</h2>
     <fieldset>
       <div className="form-group">
         <label htmlFor="title">Title: </label>
@@ -58,5 +59,9 @@ return (
       </div>
     </fieldset>
     <button className="btn btn-primary"
+      onClick={event => {
+        event.preventDefault()
+        handleSavePost()
+      }}>Add Post</button>
   </form>
-)
+)}
